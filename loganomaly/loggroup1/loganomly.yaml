@@ -1,0 +1,24 @@
+# === Additional Security Patterns ===
+additional_security_patterns:
+  - name: "Slack Token"
+    pattern: "xox[baprs]-[0-9a-zA-Z]+"
+  - name: "Basic Auth Header"
+    pattern: "Authorization: Basic [a-zA-Z0-9=]+"
+
+# === Additional Rule-Based Anomaly Patterns ===
+additional_rule_based_patterns:
+  - name: "Kubernetes CrashLoop"
+    pattern: "Back-off restarting failed container"
+    reason: "Kubernetes pod CrashLoop detected."
+
+  - name: "Invalid User"
+    pattern: "Invalid user .* from .*"
+    reason: "Possible brute-force SSH login attempt."
+
+  - name: "Payment Failure"
+    pattern: "payment.*failed"
+    reason: "Payment operation failed"
+
+  - name: "Disk Full"
+    pattern: "no space left on device"
+    reason: "Disk capacity exceeded"
